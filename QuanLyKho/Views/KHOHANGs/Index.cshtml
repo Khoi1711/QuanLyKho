@@ -1,0 +1,55 @@
+﻿@model IEnumerable<QuanLyKho.Models.KHOHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Index kho hang</h2>
+
+<a href="@Url.Action("Create","KHOHANGs")" class="btn btn-sm btn-success" style="padding:8px">Thêm</a>
+<button id="deleteSelectedKH" class="btn btn-danger">Xóa các mục đã chọn</button>
+<div class=" card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th><input type="checkbox" id="checkAll" /></th>
+            <th>Kho</th>
+            <th>
+                <form method="get">
+                    <div class="form-group">
+                        <label>Địa chỉ:</label>
+                        <select name="thanhPho" class="form-control" onchange="this.form.submit()" style="width:129px">
+                            <option value="">--Thành phố--</option>
+                            <option value="TP.HCM">TP.HCM</option>
+                            <option value="TP.Hà Nội">TP.Hà Nội</option>
+                        </select>
+                    </div>
+                </form>
+            </th>
+            <th>Số điện thoại</th>
+            <th>Chưc năng</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center"><input type="checkbox" class="checkbox" value="@item.MaKhoHang" /></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenKhohang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDTKho)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit","KHOHANGs",new { id = item.MaKhoHang})" class="btn btn-sm btn-success">Sửa</a>
+                    <a href="@Url.Action("Details","KHOHANGs",new { id = item.MaKhoHang })" class="btn btn-sm btn-info">Chi tiết</a>
+                    <a href="@Url.Action("Delete","KHOHANGs",new { id = item.MaKhoHang })" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

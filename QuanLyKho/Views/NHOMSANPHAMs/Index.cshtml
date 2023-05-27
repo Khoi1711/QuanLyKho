@@ -1,0 +1,40 @@
+﻿@model IEnumerable<QuanLyKho.Models.NHOMSANPHAM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Index nhóm sản phẩm</h2>
+
+<a href="@Url.Action("Create","NHOMSANPHAMs")" class="btn btn-sm btn-success" style="padding:8px">Thêm</a>
+<button id="deleteSelectedNSP" class="btn btn-danger">Xóa các mục đã chọn</button>
+<div class="card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th><input type="checkbox" id="checkAll" /></th>
+            <th> Nhóm sản phẩm </th>
+            <th>Mô tả</th>
+            <th>Chưc năng</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center"><input type="checkbox" class="checkbox" value="@item.MaNhomSP" /></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNhomSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mota)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit","NHOMSANPHAMs",new { id = item.MaNhomSP})" class="btn btn-sm btn-success">Sửa</a>
+                    <a href="@Url.Action("Details","NHOMSANPHAMs",new { id = item.MaNhomSP })" class="btn btn-sm btn-info">Chi tiết</a>
+                    <a href="@Url.Action("Delete","NHOMSANPHAMs",new { id = item.MaNhomSP })" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<QuanLyKho.Models.VITRIKHO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Index vi tri kho</h2>
+
+<a href="@Url.Action("Create", "VITRIKHOes")" class="btn btn-sm btn-success" style="padding:8px">Thêm</a>
+<button id="deleteSelectedVTK" class="btn btn-danger">Xóa các mục đã chọn</button>
+<div class=" card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th><input type="checkbox" id="checkAll" /></th>
+            <th>Kho</th>
+            <th>Vị trí trong kho</th>
+            <th>Mô tả</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center"><input type="checkbox" class="checkbox" value="@item.MaVTK" /></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KHOHANG.TenKhohang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenVTK)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoTa)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit","VITRIKHOes",new { id = item.MaVTK})" class="btn btn-sm btn-success">Sửa</a>
+                    <a href="@Url.Action("Details","VITRIKHOes",new { id = item.MaVTK })" class="btn btn-sm btn-info">Chi tiết</a>
+                    <a href="@Url.Action("Delete","VITRIKHOes",new { id = item.MaVTK})" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

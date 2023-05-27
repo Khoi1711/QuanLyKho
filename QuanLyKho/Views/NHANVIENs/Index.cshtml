@@ -1,0 +1,88 @@
+﻿@using PagedList.Mvc
+@using QuanLyKho.Models
+@model PagedList.PagedList<QuanLyKho.Models.NHANVIEN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Index NhanVien</h2>
+
+
+<a href="@Url.Action("Create","NHANVIENs")" class="btn btn-sm btn-success" style="padding:8px">Thêm</a>
+<button id="deleteSelectedNV" class="btn btn-danger">Xóa các mục đã chọn</button>
+<div class="card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th><input type="checkbox" id="checkAll" /></th>
+            <th>
+                <form method="get">
+                    <div class="form-group">
+                        <label>Chức vụ:</label>
+                        <select name="chucVu" class="form-control" onchange="this.form.submit()" style="width:129px">
+                            <option value="">--Chức vụ--</option>
+                            <option value="Quản Lý">Quản lý</option>
+                            <option value="Giam Doc">Giám đốc</option>
+                            <option value="Thủ Kho">Thủ kho</option>
+                        </select>
+                    </div>
+                </form>
+            </th>
+            <th>Tên nhân viên</th>
+            <th>Email</th>
+            <th>Mật khẩu</th>
+            <th>Ảnh</th>
+            <th>Chức năng</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center"><input type="checkbox" class="checkbox" value="@item.MaNV" /></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CHUCVU.TenCV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MatKhau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImgUrl)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.MaNV }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.MaNV }) |
+                           @Html.ActionLink("Delete", "Delete", new { id = item.MaNV })*@
+                    <a href="@Url.Action("Edit","NHANVIENs",new { id = item.MaNV})" class="btn btn-sm btn-success">Sửa</a>
+                    <a href="@Url.Action("Details","NHANVIENs",new { id = item.MaNV })" class="btn btn-sm btn-info">Chi tiết</a>
+                    <a href="@Url.Action("Delete","NHANVIENs",new { id = item.MaNV })" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<div class="card-footer">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+
+            .MenuTrang li a {
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+            }
+    </style>
+</div>

@@ -1,0 +1,43 @@
+﻿@model QuanLyKho.Models.KHOHANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KHOHANG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenKhohang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenKhohang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDTKho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDTKho)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaKhoHang }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,58 @@
+﻿
+@model IEnumerable<QuanLyKho.Models.NHACUNGCAP>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Index nha cung cap</h2>
+
+<a href="@Url.Action("Create", "NHACUNGCAPs")" class="btn btn-sm btn-success" style="padding:8px">Thêm</a>
+<button id="deleteSelectedNCC" class="btn btn-danger" style="position:fixed">Xóa các mục đã chọn</button>
+<div class=" card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th><input type="checkbox" id="checkAll" /></th>
+            <th>Nhà cung cấp</th>
+            <th>
+                <form method="get">
+                    <div class="form-group">
+                        <label>Địa chỉ:</label>
+                        <select name="thanhPho" class="form-control" onchange="this.form.submit()" style="width:129px">
+                            <option value="">--Thành phố--</option>
+                            <option value="TP.HCM">TP.HCM</option>
+                            <option value="TP.Hà Nội">TP.Hà Nội</option>
+                        </select>
+                    </div>
+                </form>
+            </th>
+            <th>Số điện thoại</th>
+            <th>Chức năng</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+          
+                <tr>
+                    <td class="text-center"><input type="checkbox" class="checkbox" value="@item.MaNCC" /></td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenNCC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiachiNCC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SDTNCC)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit","NHACUNGCAPs",new { id = item.MaNCC})" class="btn btn-sm btn-success">Sửa</a>
+                        <a href="@Url.Action("Details","NHACUNGCAPs",new { id = item.MaNCC })" class="btn btn-sm btn-info">Chi tiết</a>
+                        <a href="@Url.Action("Delete","NHACUNGCAPs",new { id =item.MaNCC})" class="btn btn-sm btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            
+        }
+
+    </table>
+</div>

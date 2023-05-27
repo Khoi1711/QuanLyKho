@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/libs/index.css"/>
+    <link rel="stylesheet" href="~/Content/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous"/>
+</head>
+<body>
+    <div class="dashboard-main-wrapper">
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a href="index.html" class="navbar-brand">TQEXPRESS</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input type="text" class="form-control" placeholder="Search.." fdprocessedid="cnbcuo">
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="~/images/@Session["anhNV"]" alt class="user-avatar-md rounded-circle">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name">Lưu Tuấn </h5>
+                                    <span class="status"></span>
+                                </div>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user mr-2"></i>
+                                    "Account"
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cog mr-2"></i>
+                                    "Setting"
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-power-off mr-2"></i>
+                                    "Logout"
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="sidebar-dark nav-left-sidebar ">
+            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
+                <div class="menu-list" style="overflow: hidden; width: auto; height: 100%;">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav flex-column">
+                                <li class="nav-divider"> Menu </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="true" data-target="#submenu-1" aria-controls="submenu-1">
+                                        <i class="fa fa-fw fa-user-circle"></i>
+                                        Quản lý nhân viên
+                                        <span class="badge badge-success">6</span>
+                                    </a>
+                                    <div id="submenu-1" class="submenu collapse show">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "NHANVIENs")" style="color:white"><i class="fas fa-id-card"></i>  Nhân Viên</a></li>
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "CHUCVUs")" style="color:white"><i class="fas fa-user-tie"></i>  Chúc Vụ</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="true" data-target="#submenu-2" aria-controls="submenu-2">
+                                        <i class="fas fa-archive"></i>
+                                        Quản lý hàng hóa
+                                        <span class="badge badge-success">6</span>
+                                    </a>
+                                    <div id="submenu-2" class="submenu collapse show">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "SANPHAMs")" style="color:white"><i class="fas fa-box-open"></i>  Sản Phẩm</a></li>
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "NHOMSANPHAMs")" style="color:white"><i class="fas fa-boxes"></i>  Nhóm Sản Phẩm</a></li>
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "NHACUNGCAPs")" style="color:white"><i class="fas fa-building"></i>  Nhà cung cấp</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="true" data-target="#submenu-3" aria-controls="submenu-3">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                        Vị trí
+                                        <span class="badge badge-success">6</span>
+                                    </a>
+                                    <div id="submenu-3" class="submenu collapse show">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "KHOHANGs")" style="color:white"><i class="fas fa-map-marker-alt"></i>   Kho hàng</a></li>
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "VITRIKHOes")" style="color:white"><i class="fas fa-warehouse"></i> Vị trí trong kho</a></li>
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "VITRISPs")" style="color:white"><i class="fas fa-pallet"></i> Vị trí sản phẩm</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 731.4px;"></div>
+                <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-left:294px">
+        @RenderBody()
+    </div>
+    <script src="~/Scripts/jquery/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap/bootstrap.bundle.js"></script>
+    <script src="~/Scripts/Ql/QL.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('#sort-asc').on('click', function () {
+            var url = '@Url.Action("Index", "SANPHAMs", new { sortOrder = "asc" })';
+            window.location.href = url;
+        });
+        $('#sort-desc').on('click', function () {
+            var url = '@Url.Action("Index", "SANPHAMs", new { sortOrder = "desc" })';
+            window.location.href = url
+        });
+    });
+    </script>
+    @*   <script>
+        $(document).ready(function () {
+            $('#sort-price-asc').on('click', function () {
+                var url = '@Url.Action("Index", "SanPham", new { sortOrder = "__sortOrder__", filterStock = ViewBag.FilterStock, filterPrice = ViewBag.FilterPrice })';
+                url = url.replace("__sortOrder__", "asc");
+                window.location.href = url;
+            });
+            $('#sort-price-desc').on('click', function () {
+                var url = '@Url.Action("Index", "SanPham", new { sortOrder = "__sortOrder__", filterStock = ViewBag.FilterStock, filterPrice = ViewBag.FilterPrice })';
+                url = url.replace("__sortOrder__", "desc");
+                window.location.href = url;
+            });
+        });
+        </script>
+        <script>$('#deleteSelected').click(function () {
+                var selectedIds = $('.checkbox:checked').map(function () {
+                    return $(this).val();
+                }).get();
+
+                if (selectedIds.length === 0) {
+                    alert('Vui lòng chọn ít nhất một mục để xóa.');
+                } else {
+                    var confirmed = confirm('Bạn có chắc muốn xóa các mục đã chọn?');
+
+                    if (confirmed) {
+                        $.ajax({
+                            url: '/NHANVIENs/DeleteSelected',
+                            type: 'POST',
+                            data: { selectedIds: selectedIds },
+                            success: function () {
+                                location.reload();
+                            },
+                            error: function () {
+                                alert('Đã xảy ra lỗi khi xóa các mục đã chọn.');
+                            }
+                        });
+                    }
+                }
+            });</script>*@
+</body>
+</html>

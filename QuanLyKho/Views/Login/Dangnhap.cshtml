@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Dangnhap";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+@using(Html.BeginForm()){
+    <div class="form">
+        <div class="form-toggle">
+            <div class="form-panel one">
+                <div class="form-header">
+                    <h1>Account Login</h1>
+                </div>
+                <div class="form-con">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <button>Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

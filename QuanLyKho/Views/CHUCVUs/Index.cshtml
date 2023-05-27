@@ -1,0 +1,40 @@
+﻿@model IEnumerable<QuanLyKho.Models.CHUCVU>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Index chức vụ</h2>
+
+<a href="@Url.Action("Create","CHUCVUs")" class="btn btn-sm btn-success" style="padding:8px">Thêm</a>
+<button id="deleteSelectedCV" class="btn btn-danger">Xóa các mục đã chọn</button>
+<div class="card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th><input type="checkbox" id="checkAll" /></th>
+            <th>Chức vụ</th>
+            <th>Mô tả</th>
+            <th>Chưc năng</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center"><input type="checkbox" class="checkbox" value="@item.MaCV" /></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenCV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoTa)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit","CHUCVUs",new { id = item.MaCV})" class="btn btn-sm btn-success">Sửa</a>
+                    <a href="@Url.Action("Details","CHUCVUs",new { id = item.MaCV })" class="btn btn-sm btn-info">Chi tiết</a>
+                    <a href="@Url.Action("Delete","CHUCVUs",new { id = item.MaCV })" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
