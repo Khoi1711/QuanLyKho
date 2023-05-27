@@ -38,6 +38,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaVTK }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit","VITRIKHOes",new { id = Model.MaKhoHang})" class="btn btn-sm btn-success" style="padding:8px">Sửa</a>
+    <a href="@Url.Action("Index","VITRIKHOes")" class="btn btn-sm btn-success" style="padding: 8px">Trở về <i class="fas fa-arrow-circle-left"></i></a>
 </p>

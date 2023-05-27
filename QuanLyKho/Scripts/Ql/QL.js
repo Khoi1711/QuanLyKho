@@ -234,7 +234,7 @@ $('#deleteSelectedNCC').click(function () {
         }
     }
 });
-/*bắt sự kiện xóa các mục đã chọn bảng nha cung cap*/
+/*bắt sự kiện xóa các mục đã chọn bảng chi tiet phieu nhap kho*/
 $('#deleteSelectedCTNhap').click(function () {
     var selectedIds = $('.checkbox:checked').map(function () {
         return $(this).val();
@@ -248,6 +248,33 @@ $('#deleteSelectedCTNhap').click(function () {
         if (confirmed) {
             $.ajax({
                 url: '/CTPHIEUNHAPKHOes/DeleteSelected',
+                type: 'POST',
+                data: { selectedIds: selectedIds },
+                success: function () {
+                    location.reload();
+                },
+                error: function () {
+                    alert('Đã xảy ra lỗi khi xóa các mục đã chọn.');
+                }
+            });
+        }
+    }
+});
+
+/*bắt sự kiện xóa các mục đã chọn bảng nha cung cap*/
+$('#deleteSelectedPXK').click(function () {
+    var selectedIds = $('.checkbox:checked').map(function () {
+        return $(this).val();
+    }).get();
+
+    if (selectedIds.length === 0) {
+        alert('Vui lòng chọn ít nhất một mục để xóa.');
+    } else {
+        var confirmed = confirm('Bạn có chắc muốn xóa các mục đã chọn?');
+
+        if (confirmed) {
+            $.ajax({
+                url: '/PHIEUXUATKHOes/DeleteSelected',
                 type: 'POST',
                 data: { selectedIds: selectedIds },
                 success: function () {

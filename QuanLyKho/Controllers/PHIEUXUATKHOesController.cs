@@ -114,6 +114,26 @@ namespace QuanLyKho.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult DeleteSelected(string[] selectedIds)
+        {
+            if (selectedIds != null && selectedIds.Length > 0)
+            {
+                foreach (var id in selectedIds)
+                {
+                    if (int.TryParse(id, out int sanPhamId))
+                    {
+                        var phieuxuatkho = db.PHIEUXUATKHOes.Find(sanPhamId);
+                        if (phieuxuatkho != null)
+                        {
+                            db.PHIEUXUATKHOes.Remove(phieuxuatkho);
+                        }
+                    }
+                }
+                db.SaveChanges();
+            }
+
+            return new EmptyResult();
+        }
 
         protected override void Dispose(bool disposing)
         {

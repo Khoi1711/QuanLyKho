@@ -48,9 +48,9 @@
             @Html.DisplayFor(modelItem => item.GiaTriDH)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaDH }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaDH }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaDH })
+            <a href="@Url.Action("Edit","DONHANGs",new { id = item.MaDH})" class="btn btn-sm btn-success">Sửa</a>
+            <a href="@Url.Action("Details","DONHANGs",new { id = item.MaDH })" class="btn btn-sm btn-info">Chi tiết</a>
+            <a href="@Url.Action("Delete","DONHANGs",new { id = item.MaDH })" class="btn btn-sm btn-danger">Xóa</a>
         </td>
     </tr>
 }

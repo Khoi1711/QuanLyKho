@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.DonGia)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SoLuongNhap)
+            @Html.DisplayNameFor(model => model.SoLuongXuat)
         </th>
         <th></th>
     </tr>
@@ -39,12 +39,12 @@
             @Html.DisplayFor(modelItem => item.DonGia)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SoLuongNhap)
+            @Html.DisplayFor(modelItem => item.SoLuongXuat)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaCTPXK }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaCTPXK }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaCTPXK })
+            <a href="@Url.Action("Edit","CTPHIEUXUATKHOes",new { id = item.MaPXK})" class="btn btn-sm btn-success">Sửa</a>
+            <a href="@Url.Action("Details","CTPHIEUXUATKHOes",new { id = item.MaPXK })" class="btn btn-sm btn-info">Chi tiết</a>
+            <a href="@Url.Action("Delete","CTPHIEUXUATKHOes",new { id = item.MaPXK })" class="btn btn-sm btn-danger">Xóa</a>
         </td>
     </tr>
 }

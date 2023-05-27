@@ -40,9 +40,9 @@
                         @Html.DisplayFor(modelItem => item.SoLuongNhap)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.MaCTPNK }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.MaCTPNK }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.MaCTPNK })
+                        <a href="@Url.Action("Edit","CTPHIEUNHAPKHOes",new { id = item.MaPNK})" class="btn btn-sm btn-success">Sửa</a>
+                        <a href="@Url.Action("Details","CTPHIEUNHAPKHOes",new { id = item.MaPNK })" class="btn btn-sm btn-info">Chi tiết</a>
+                        <a href="@Url.Action("Delete","CTPHIEUNHAPKHOes",new { id = item.MaPNK })" class="btn btn-sm btn-danger">Xóa</a>
                     </td>
                 </tr>
             }

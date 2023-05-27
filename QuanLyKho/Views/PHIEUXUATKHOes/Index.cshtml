@@ -5,42 +5,44 @@
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Phieu Xuat Kho</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<a href="@Url.Action("Create", "PHIEUXUATKHOes")" class="btn btn-sm btn-success" style="padding:8px">Thêm</a>
+<button id="deleteSelectedPXK" class="btn btn-danger" style="position:fixed">Xóa các mục đã chọn</button>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NgayXuat)
+            NgayXuat
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TongTien)
+            Ngay Nhap
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TongSPXuatKho)
+            TongSpXuatKho
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayXuat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TongTien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TongSPXuatKho)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaPXK }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaPXK }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaPXK })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text-center"><input type="checkbox" class="checkbox" value="@item.MaPXK" /></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayXuat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongSPXuatKho)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit","PHIEUXUATKHOes",new { id = item.MaPXK})" class="btn btn-sm btn-success">Sửa</a>
+                <a href="@Url.Action("Details","PHIEUXUATKHOes",new { id = item.MaPXK })" class="btn btn-sm btn-info">Chi tiết</a>
+                <a href="@Url.Action("Delete","PHIEUXUATKHOes",new { id = item.MaPXK })" class="btn btn-sm btn-danger">Xóa</a>
+            </td>
+
+</tr>
+    }
 
 </table>
