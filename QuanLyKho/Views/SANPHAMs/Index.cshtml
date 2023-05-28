@@ -47,6 +47,7 @@
                 </span>
             </th>
             <th>Hình ảnh</th>
+            <th>Khối lượng</th>
             <th>Chưc năng</th>
         </tr>
 
@@ -77,6 +78,9 @@
             </td>
             <td>
                 <img src="~/images/@item.HinhAnh" style="width:50px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhoiLuong)
             </td>
             <td>
                 <a href="@Url.Action("Edit","SANPHAMs",new { id = item.MaSP})" class="btn btn-sm btn-success">Sửa</a>

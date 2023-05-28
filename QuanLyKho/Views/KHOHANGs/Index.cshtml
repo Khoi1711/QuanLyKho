@@ -27,6 +27,7 @@
                 </form>
             </th>
             <th>Số điện thoại</th>
+            <th>Sức chứa</th>
             <th>Chưc năng</th>
         </tr>
 
@@ -42,6 +43,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.SDTKho)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Succhua)
                 </td>
                 <td>
                     <a href="@Url.Action("Edit","KHOHANGs",new { id = item.MaKhoHang})" class="btn btn-sm btn-success">Sửa</a>

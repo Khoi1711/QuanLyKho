@@ -34,6 +34,8 @@ namespace QuanLyKho.Models
         [StringLength(20)]
         public string SDTKho { get; set; }
 
+        public int Succhua { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VITRIKHO> VITRIKHOes { get; set; }
     }
