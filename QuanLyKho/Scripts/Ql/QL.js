@@ -287,6 +287,7 @@ $('#deleteSelectedPXK').click(function () {
         }
     }
 });
+/*Ve bieu do charrjs* /
 
 /*chọn tất cả */
 $(document).ready(function () {

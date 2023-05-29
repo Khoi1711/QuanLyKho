@@ -20,6 +20,7 @@ namespace QuanLyKho.Controllers
         // GET: SANPHAMs
         public ActionResult Index(String sortOrder, String nhomSP, int? page)
         {
+            
             ViewBag.SortOrder = sortOrder;
             var sanPham = db.SANPHAMs.AsQueryable();
             if (!string.IsNullOrEmpty(nhomSP))

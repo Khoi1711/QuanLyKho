@@ -140,6 +140,7 @@
     <Compile Include="Controllers\CTPHIEUNHAPKHOesController.cs" />
     <Compile Include="Controllers\CTPHIEUXUATKHOesController.cs" />
     <Compile Include="Controllers\DONHANGsController.cs" />
+    <Compile Include="Controllers\GetSalesDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KHOHANGsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="Models\PHIEUNHAPKHO.cs" />
     <Compile Include="Models\PHIEUXUATKHO.cs" />
     <Compile Include="Models\QLKhoDBContext.cs" />
+    <Compile Include="Models\SalesData.cs" />
     <Compile Include="Models\SANPHAM.cs" />
     <Compile Include="Models\VITRIKHO.cs" />
     <Compile Include="Models\VITRISP.cs" />
@@ -338,6 +340,7 @@
     <Content Include="Views\CHITIETDONHANGs\Details.cshtml" />
     <Content Include="Views\CHITIETDONHANGs\Edit.cshtml" />
     <Content Include="Views\CHITIETDONHANGs\Index.cshtml" />
+    <Content Include="Views\GetSalesData\GetSalesData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

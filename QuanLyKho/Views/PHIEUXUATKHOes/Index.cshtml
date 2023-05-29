@@ -11,16 +11,15 @@
 <button id="deleteSelectedPXK" class="btn btn-danger" style="position:fixed">Xóa các mục đã chọn</button>
 <table class="table">
     <tr>
+        <th><input type="checkbox" id="checkAll" /></th>
         <th>
-            NgayXuat
+            Ngày xuất
         </th>
-        <th>
-            Ngay Nhap
-        </th>
+        <th>Tổng tiền</th>
         <th>
             TongSpXuatKho
         </th>
-        <th></th>
+        <th>Chức năng</th>
     </tr>
 
     @foreach (var item in Model)
