@@ -1,10 +1,11 @@
+/*Bắt sự kiện click số lượng tồn sắp xếp giảm/ tăng theo số lượng tồn */
 $(document).ready(function () {
     $('#sort-asc').on('click', function () {
-        var url = '@Url.Action("Index", "SANPHAMs", new { sortOrder = "asc" })';
+        var url = '@Url.Action("Index", "SANPHAMs", new { sortOrder = "asc" , soluongton = ViewBag.SoLuongTon})';
         window.location.href = url;
     });
     $('#sort-desc').on('click', function () {
-        var url = '@Url.Action("Index", "SANPHAMs", new { sortOrder = "desc" })';
+        var url = '@Url.Action("Index", "SANPHAMs", new { sortOrder = "desc", soluongton = ViewBag.SoLuongTon })';
         window.location.href = url
     });
 });

@@ -1,60 +1,63 @@
-﻿
-@{
-    ViewBag.Title = "GetSalesData";
-    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
-}
+﻿@model IEnumerable<QuanLyKho.Models.SalesData>
 
-@model IEnumerable<QuanLyKho.Models.SalesData>
+    <div>
+        <canvas id="salesChart"></canvas>
+    </div>
 
-@{
-    ViewBag.Title = "Sales Report";
-}
+    @section scripts {
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/chart.min.js"></script>
+        <script>
+            var salesData = @Html.Raw(Json.Encode(ViewBag.SalesData));
 
-<h2>@ViewBag.Title</h2>
+            var labels = salesData.map(function (data) {
+                return data.TenSP;
+            });
 
-<div>
-    <canvas id="myChart"></canvas>
-</div>
+            var data = salesData.map(function (data) {
+                return data.SoLuongXuat;
+            });
 
-@section scripts {
-    <script>
-        $(function () {
-            $.ajax({
-                url: "@Url.Action("GetSalesData", "SANPHAM")",
-                type: "GET",
-                success: function (result) {
-                    var data = {
-                        labels: [],
-                        datasets: [
-                            {
-                                label: "Sales Data",
-                                backgroundColor: "rgba(255,99,132,0.2)",
-                                borderColor: "rgba(255,99,132,1)",
-                                borderWidth: 1,
-                                data: []
-                            }
-                        ]
-                    };
-                    $.each(result, function (i, item) {
-                        data.labels.push(item.TenSP);
-                        data.datasets[0].data.push(item.SoLuongXuat);
-                    });
-                    var ctx = document.getElementById("myChart").getContext("2d");
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
+            var ctx = document.getElementById('salesChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'SalesData',
                         data: data,
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                }]
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
                             }
-                        }
-                    });
+                        }]
+                    }
                 }
             });
-        });
-    </script>
-}
+        </script>
+    }
+@*@model IEnumerable<QuanLyKho.Models.SalesData>
+
+<table>
+    <thead>
+        <tr>
+            <th>TenSP</th>
+            <th>SoLuongXuat</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.SalesData)
+        {
+            <tr>
+                <td>@item.TenSP</td>
+                <td>@item.SoLuongXuat</td>
+            </tr>
+        }
+    </tbody>
+</table>*@

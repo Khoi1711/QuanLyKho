@@ -42,9 +42,9 @@
             @Html.DisplayFor(modelItem => item.SoLuongXuat)
         </td>
         <td>
-            <a href="@Url.Action("Edit","CTPHIEUXUATKHOes",new { id = item.MaPXK})" class="btn btn-sm btn-success">Sửa</a>
-            <a href="@Url.Action("Details","CTPHIEUXUATKHOes",new { id = item.MaPXK })" class="btn btn-sm btn-info">Chi tiết</a>
-            <a href="@Url.Action("Delete","CTPHIEUXUATKHOes",new { id = item.MaPXK })" class="btn btn-sm btn-danger">Xóa</a>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaCTPXK }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaCTPXK }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaCTPXK })
         </td>
     </tr>
 }

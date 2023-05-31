@@ -101,9 +101,60 @@
                                             <li class="nav-divider"><a href="@Url.Action("Index", "KHOHANGs")" style="color:white"><i class="fas fa-map-marker-alt"></i>   Kho hàng</a></li>
                                             <li class="nav-divider"><a href="@Url.Action("Index", "VITRIKHOes")" style="color:white"><i class="fas fa-warehouse"></i> Vị trí trong kho</a></li>
                                             <li class="nav-divider"><a href="@Url.Action("Index", "VITRISPs")" style="color:white"><i class="fas fa-pallet"></i> Vị trí sản phẩm</a></li>
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "GoogleMap")" style="color:white"><i class="fas fa-map"></i> Google Map</a></li>
                                         </ul>
                                     </div>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="true" data-target="#submenu-5" aria-controls="submenu-5">
+                                        <i class="fa fa-fw fa-user-circle"></i>
+                                        Calendar
+                                        <span class="badge badge-success">6</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="true" data-target="#submenu-6" aria-controls="submenu-6">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                        Phiếu nhập kho
+                                        <span class="badge badge-success">6</span>
+                                    </a>
+                                    <div id="submenu-6" class="submenu collapse show">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "PHIEUNHAPKHOes")" style="color:white"><i class="fas fa-map-marker-alt"></i>Phiếu nhập kho</a></li>
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "CTPHIEUNHAPKHOes")" style="color:white"><i class="fas fa-warehouse"></i>Chi tiết phiếu nhập kho</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="true" data-target="#submenu-7" aria-controls="submenu-7">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                        Phiếu xuất kho
+                                        <span class="badge badge-success">6</span>
+                                    </a>
+                                    <div id="submenu-7" class="submenu collapse show">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "PHIEUXUATKHOes")" style="color:white"><i class="fas fa-map-marker-alt"></i>Phiếu xuất kho</a></li>
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "CTPHIEUXUATKHOes")" style="color:white"><i class="fas fa-warehouse"></i>Chi tiết phiếu xuất kho</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="true" data-target="#submenu-8" aria-controls="submenu-8">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                        Biểu đồ
+                                        <span class="badge badge-success">6</span>
+                                    </a>
+                                    <div id="submenu-8" class="submenu collapse show">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "GetSalesData")" style="color:white"><i class="fas fa-map-marker-alt"></i>Biểu đồ quản lý xuất kho</a></li>
+                                            <li class="nav-divider"><a href="@Url.Action("Index", "GetSalesData")" style="color:white"><i class="fas fa-warehouse"></i>Biểu đồ quản lý nhập kho</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
                             </ul>
                         </div>
                     </nav>
